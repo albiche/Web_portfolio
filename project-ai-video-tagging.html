@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Video Tagging with AI Gen - Portfolio Details</title>
+  <meta name="description" content="Detailed project page for Video Tagging with AI Gen - Pernod Ricard">
+  <meta name="keywords" content="Generative AI, Vision GPT, Video Tagging, Pernod Ricard">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+</head>
+
+<body class="portfolio-details-page">
+
+  <header id="header" class="header dark-background d-flex flex-column justify-content-center">
+    <i class="header-toggle d-xl-none bi bi-list"></i>
+    <div class="header-container d-flex flex-column align-items-start">
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html"><i class="bi bi-house navicon"></i>Home</a></li>
+          <li><a href="index.html#about"><i class="bi bi-person navicon"></i> About</a></li>
+          <li><a href="index.html#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+          <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
+          <li><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
+          <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+        </ul>
+      </nav>
+      <div class="social-links text-center">
+        <a href="https://www.linkedin.com/in/alban-danet" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/albiche" class="github" target="_blank"><i class="bi bi-github"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <h1 class="mb-2 mb-lg-0">Video Tagging with AI Gen</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Portfolio Details</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Portfolio Details Section -->
+    <section id="portfolio-details" class="portfolio-details section">
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-8">
+            <div class="portfolio-details-slider swiper init-swiper">
+              <script type="application/json" class="swiper-config">
+                {
+                  "loop": true,
+                  "speed": 600,
+                  "autoplay": { "delay": 5000 },
+                  "slidesPerView": "auto",
+                  "pagination": { "el": ".swiper-pagination", "type": "bullets", "clickable": true }
+                }
+              </script>
+              <div class="swiper-wrapper align-items-center">
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/video_tagging_pipeline.png" alt="AI Video Tagging" class="img-fluid" loading="lazy">
+                </div>
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/video_tagging_example.png" alt="Pipeline Architecture" class="img-fluid" loading="lazy">
+                </div>
+                <div class="swiper-slide">
+                  <img src="assets/img/portfolio/video_tagging.png" alt="Frame Extraction" class="img-fluid" loading="lazy">
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="portfolio-info" data-aos="fade-left" data-aos-delay="200">
+              <h3>Project Information</h3>
+              <ul>
+                <li><strong>Category</strong>: AI for Advertising</li>
+                <li><strong>Client</strong>: Pernod Ricard</li>
+                <li><strong>Project date</strong>: 2025</li>
+                <li><strong>Project URL</strong>: <a href="https://github.com/albiche/ai_video_tagging" target="_blank">github.com/albiche/ai_video_tagging</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-12">
+            <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
+              <h2>Project Overview</h2>
+              <p>
+                The Video Tagging with AI Gen project delivers a sophisticated multi-modal analysis pipeline to automatically tag creative elements in video ads. Designed for Pernod Ricard, it addresses the challenge of subjective, inconsistent, and costly manual video annotation by using large language models and advanced frame/audio extraction strategies. This approach ensures consistent, objective tagging even for complex emotional or brand signals in 30-second advertising spots, achieving a 10x cost reduction compared to outsourcing.
+              </p>
+
+              <h3 class="mt-4">Key Features & Functionalities</h3>
+              <div class="features mt-3">
+                <div class="row gy-3">
+                  <div class="col-md-6">
+                    <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
+                      <i class="bi bi-camera-video"></i>
+                      <h4>Advanced Frame Extraction</h4>
+                      <p>Supports multiple strategies including regular intervals, scene-change detection, face/person detection, and grouped sampling for richer context.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="feature-item" data-aos="fade-up" data-aos-delay="500">
+                      <i class="bi bi-volume-up"></i>
+                      <h4>Audio Transcription & Analysis</h4>
+                      <p>Extracts and transcribes audio tracks for inclusion in multi-modal prompts, ensuring dialogue and sound cues are accurately tagged.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="feature-item" data-aos="fade-up" data-aos-delay="600">
+                      <i class="bi bi-chat-left-text"></i>
+                      <h4>Brand Knowledge Injection</h4>
+                      <p>Enriches prompts with brand-specific colors, elements, and semantic cues for superior tagging accuracy and alignment with marketing strategy.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="feature-item" data-aos="fade-up" data-aos-delay="700">
+                      <i class="bi bi-arrows-angle-expand"></i>
+                      <h4>Intelligent Batching & Chunking</h4>
+                      <p>Handles LLM token/image/audio limits by smartly grouping tags and inputs into optimized batches for efficient processing.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="feature-item" data-aos="fade-up" data-aos-delay="800">
+                      <i class="bi bi-gear"></i>
+                      <h4>Template-Driven Flexibility</h4>
+                      <p>Fully configurable via JSON/YAML templates, enabling easy adaptation to new tags, accepted values, and merging logic without code changes.</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="feature-item" data-aos="fade-up" data-aos-delay="900">
+                      <i class="bi bi-diagram-3"></i>
+                      <h4>Scalable Automation</h4>
+                      <p>Supports batch processing from CSVs of video URLs, brand knowledge management, and standardized CSV output for analytics.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <h3 class="mt-5">Architecture & Workflow</h3>
+              <p>
+                The pipeline's modular architecture supports advanced frame and audio extraction, brand-specific context injection, intelligent prompt construction, and multi-modal LLM tagging using GPT-4o. Frame extraction strategies include regular intervals, MIF (most informative frames), and person detection via YOLOv8. Audio tracks are extracted and transcribed to provide context. Batches are constructed respecting token/image/audio limits, and prompts are enriched with brand knowledge for consistent, marketing-aligned results.
+              </p>
+              <p>
+                The system also supports automated brand knowledge file generation and extensible logic for merging and validating results across batches. All outputs are normalized and exported in CSV format, ready for downstream marketing analytics or dataset creation.
+              </p>
+
+              <h3 class="mt-5">Results & Business Impact</h3>
+              <p>
+                This solution enables Pernod Ricard to replace manual outsourcing with a highly scalable, accurate, and objective AI-based video tagging process. It ensures consistent brand and creative analysis across markets, reduces subjective interpretation, and achieves cost savings of 10x. Close collaboration with the marketing team ensures precise tag definitions and robust prompt design, delivering a strong foundation for strategic creative analysis and benchmarking.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /Portfolio Details Section -->
+
+  </main>
+
+  <footer id="footer" class="footer position-relative">
+    <div class="container">
+      <div class="copyright text-center">
+        <p>© Copyright <strong class="px-1 sitename">Alban Danet AI Portfolio</strong>. All Rights Reserved.</p>
+      </div>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/typed.js/typed.umd.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+
