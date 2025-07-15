@@ -36,46 +36,6 @@
   ======================================================== -->
 </head>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById("contact-form");
-    form.addEventListener("submit", async function (e) {
-      e.preventDefault();
-      const data = new FormData(form);
-      const action = form.getAttribute("action");
-
-      // Affiche le loader
-      form.querySelector('.loading').style.display = 'block';
-      form.querySelector('.error-message').style.display = 'none';
-      form.querySelector('.sent-message').style.display = 'none';
-
-      try {
-        const response = await fetch(action, {
-          method: form.method,
-          body: data,
-          headers: {
-            'Accept': 'application/json'
-          }
-        });
-
-        form.querySelector('.loading').style.display = 'none';
-
-        if (response.ok) {
-          window.location.href = "thanks.html";
-        } else {
-          form.querySelector('.error-message').style.display = 'block';
-          form.querySelector('.error-message').innerText = "An error occurred. Please try again later.";
-        }
-      } catch (error) {
-        form.querySelector('.loading').style.display = 'none';
-        form.querySelector('.error-message').style.display = 'block';
-        form.querySelector('.error-message').innerText = "Network error. Please check your connection and try again.";
-      }
-    });
-  });
-</script>
-
-
 
 <body class="index-page">
 
@@ -85,40 +45,22 @@
     <div class="header-container d-flex flex-column align-items-start">
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-          <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-          <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
+          <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i> Home</a></li>
           <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portfolio</a></li>
           <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Services</a></li>
-          <li class="dropdown"><a href="#"><i class="bi bi-menu-button navicon"></i> <span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+
+          <li class="dropdown">
+            <a href="about-me.html"><i class="bi bi-person navicon"></i> <span>About Me</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
+              <li><a href="about-me.html#about">About</a></li>
+              <li><a href="about-me.html#skills">Skills</a></li>
+              <li><a href="about-me.html#resume">Resume</a></li>
             </ul>
           </li>
-          <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+          
         </ul>
       </nav>
-
-      <div class="social-links text-center">
-        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-        <a href="https://www.linkedin.com/in/alban-danet" class="linkedin"><i class="bi bi-linkedin"></i></a>
-      </div>
-
     </div>
 
   </header>
@@ -149,10 +91,6 @@
                   <a href="#contact" class="btn btn-outline">Get In Touch</a>
                 </div>
 
-                <div class="social-links">
-                  <a href="https://github.com/albiche" target="_blank"><i class="bi bi-github"></i></a>
-                  <a href="https://www.linkedin.com/in/alban-danet" target="_blank"><i class="bi bi-linkedin"></i></a>
-                </div>
               </div>
             </div>
 
@@ -176,499 +114,6 @@
       </div>
 
     </section><!-- /Hero Section -->
-
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row">
-          <div class="col-lg-5" data-aos="zoom-in" data-aos-delay="200">
-            <div class="profile-card">
-              <div class="profile-header">
-                <div class="profile-image">
-                  <img src="assets/img/profile/profile.PNG" alt="Alban Danet" class="img-fluid">
-                </div>
-                <div class="profile-badge">
-                  <i class="bi bi-check-circle-fill"></i>
-                </div>
-              </div>
-
-              <div class="profile-content">
-                <h3>Alban Danet</h3>
-                <p class="profession">Freelance Generative AI Specialist</p>
-
-                <div class="contact-links">
-                  <a href="mailto:alban@example.com" class="contact-item">
-                    <i class="bi bi-envelope"></i>
-                   contact@albandanet.fr
-                  </a>
-                  <a href="tel:+33612345678" class="contact-item">
-                    <i class="bi bi-telephone"></i>
-                    +33 6 12 34 56 78
-                  </a>
-                  <a href="https://www.linkedin.com/in/alban-danet" class="contact-item" target="_blank">
-                    <i class="bi bi-linkedin"></i>
-                    LinkedIn
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-7" data-aos="fade-left" data-aos-delay="300">
-            <div class="about-content">
-              <div class="section-header">
-                <span class="badge-text">Get to Know Me</span>
-                <h2>Designing Robust AI Solutions for Real-World Impact</h2>
-              </div>
-
-              <div class="description">
-                <p>
-                  I'm a passionate Generative AI Specialist with a strong background in building and deploying AI-powered systems that solve real-world problems. My mission is to help businesses harness the power of Generative AI through tailored, production-ready solutions.
-                </p>
-                <p>
-                  From developing an autonomous weather alert system for fishermen in Madagascar to delivering cutting-edge AI solutions at Pernod Ricard, I bring technical expertise, strategic thinking, and hands-on execution to every project.
-                </p>
-              </div>
-
-              <div class="stats-grid">
-                <div class="stat-item">
-                  <div class="stat-number">7</div>
-                  <div class="stat-label">AI Projects Delivered</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-number">3+</div>
-                  <div class="stat-label">Years Experience</div>
-                </div>
-                <div class="stat-item">
-                  <div class="stat-number">100%</div>
-                  <div class="stat-label">Client Focused</div>
-                </div>
-              </div>
-
-              <div class="details-grid">
-                <div class="detail-row">
-                  <div class="detail-item">
-                    <span class="detail-label">Specialization</span>
-                    <span class="detail-value">Generative AI, Data Engineering, Automation</span>
-                  </div>
-                  <div class="detail-item">
-                    <span class="detail-label">Experience Level</span>
-                    <span class="detail-value">Senior Professional</span>
-                  </div>
-                </div>
-                <div class="detail-row">
-                  <div class="detail-item">
-                    <span class="detail-label">Education</span>
-                    <span class="detail-value">Engineering Degree in Data Science</span>
-                  </div>
-                  <div class="detail-item">
-                    <span class="detail-label">Languages</span>
-                    <span class="detail-value">French, English</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="cta-section">
-                <a href="#resume" class="btn btn-primary">
-                  <i class="bi bi-download"></i>
-                  View Resume
-                </a>
-                <a href="#contact" class="btn btn-outline">
-                  <i class="bi bi-chat-dots"></i>
-                  Let's Talk
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- /About Section -->
-
-
-    <!-- Stats Section -->
-    <section id="stats" class="stats section light-background">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div class="stats-wrapper">
-
-              <div class="stats-item" data-aos="zoom-in" data-aos-delay="150">
-                <div class="icon-wrapper">
-                  <i class="bi bi-cpu"></i>
-                </div>
-                <span class="purecounter" data-purecounter-start="0" data-purecounter-end="7" data-purecounter-duration="1"></span>
-                <p>AI Projects Delivered</p>
-              </div><!-- End Stats Item -->
-
-              <div class="stats-item" data-aos="zoom-in" data-aos-delay="200">
-                <div class="icon-wrapper">
-                  <i class="bi bi-clock-history"></i>
-                </div>
-                <span class="purecounter" data-purecounter-start="0" data-purecounter-end="3" data-purecounter-duration="1"></span>
-                <p>Years of Experience</p>
-              </div><!-- End Stats Item -->
-
-              <div class="stats-item" data-aos="zoom-in" data-aos-delay="250">
-                <div class="icon-wrapper">
-                  <i class="bi bi-people"></i>
-                </div>
-                <span class="purecounter" data-purecounter-start="0" data-purecounter-end="4" data-purecounter-duration="1"></span>
-                <p>Major AI Systems at Pernod Ricard</p>
-              </div><!-- End Stats Item -->
-
-              <div class="stats-item" data-aos="zoom-in" data-aos-delay="300">
-                <div class="icon-wrapper">
-                  <i class="bi bi-emoji-smile"></i>
-                </div>
-                <span class="purecounter" data-purecounter-start="0" data-purecounter-end="35" data-purecounter-duration="1"></span>
-                <p>Client Focused</p>
-              </div><!-- End Stats Item -->
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- /Stats Section -->
-
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Skills</h2>
-        <p>Designing, building, and deploying robust Generative AI solutions tailored to real business needs.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row">
-          <!-- AI & Machine Learning -->
-          <div class="col-lg-6">
-            <div class="skills-category" data-aos="fade-up" data-aos-delay="200">
-              <h3>AI & Machine Learning</h3>
-              <div class="skills-animation">
-                <div class="skill-item">
-                  <div class="d-flex justify-content-between align-items-center">
-                    <h4>Python (NumPy, Pandas, PyTorch, TensorFlow)</h4>
-                    <span class="skill-percentage">95%</span>
-                  </div>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="d-flex justify-content-between align-items-center">
-                    <h4>Machine Learning & NLP</h4>
-                    <span class="skill-percentage">90%</span>
-                  </div>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="d-flex justify-content-between align-items-center">
-                    <h4>Data Analysis & Visualization</h4>
-                    <span class="skill-percentage">85%</span>
-                  </div>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End AI Skills -->
-          </div>
-
-          <!-- Prompt Engineering & LLMs -->
-          <div class="col-lg-6">
-            <div class="skills-category" data-aos="fade-up" data-aos-delay="300">
-              <h3>Prompt Engineering & LLMs</h3>
-              <div class="skills-animation">
-                <div class="skill-item">
-                  <div class="d-flex justify-content-between align-items-center">
-                    <h4>Prompt Engineering (Advanced)</h4>
-                    <span class="skill-percentage">95%</span>
-                  </div>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="d-flex justify-content-between align-items-center">
-                    <h4>LLM Integration (OpenAI, Claude, Mistral)</h4>
-                    <span class="skill-percentage">90%</span>
-                  </div>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="d-flex justify-content-between align-items-center">
-                    <h4>Agents & LangChain / CrewAI</h4>
-                    <span class="skill-percentage">85%</span>
-                  </div>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Prompt Engineering -->
-          </div>
-        </div>
-
-        <div class="row mt-4">
-          <!-- Data Engineering & Pipelines -->
-          <div class="col-lg-6">
-            <div class="skills-category" data-aos="fade-up" data-aos-delay="400">
-              <h3>Data Engineering & Pipelines</h3>
-              <div class="skills-animation">
-                <div class="skill-item">
-                  <div class="d-flex justify-content-between align-items-center">
-                    <h4>SQL & NoSQL (PostgreSQL, MongoDB)</h4>
-                    <span class="skill-percentage">90%</span>
-                  </div>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="d-flex justify-content-between align-items-center">
-                    <h4>Spark & Big Data</h4>
-                    <span class="skill-percentage">80%</span>
-                  </div>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="d-flex justify-content-between align-items-center">
-                    <h4>Data Pipelines & ETL</h4>
-                    <span class="skill-percentage">85%</span>
-                  </div>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Data Engineering -->
-          </div>
-
-          <!-- Software & Cloud -->
-          <div class="col-lg-6">
-            <div class="skills-category" data-aos="fade-up" data-aos-delay="500">
-              <h3>Software & Cloud</h3>
-              <div class="skills-animation">
-                <div class="skill-item">
-                  <div class="d-flex justify-content-between align-items-center">
-                    <h4>APIs & Integration (REST, GraphQL)</h4>
-                    <span class="skill-percentage">90%</span>
-                  </div>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="d-flex justify-content-between align-items-center">
-                    <h4>Cloud & DevOps (AWS, Azure, Heroku)</h4>
-                    <span class="skill-percentage">85%</span>
-                  </div>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-
-                <div class="skill-item">
-                  <div class="d-flex justify-content-between align-items-center">
-                    <h4>Docker & GitHub Actions</h4>
-                    <span class="skill-percentage">80%</span>
-                  </div>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Software & Cloud -->
-          </div>
-        </div>
-
-      </div>
-    </section><!-- /Skills Section -->
-
-
-    <!-- Resume Section -->
-    <section id="resume" class="resume section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Resume</h2>
-        <p>Generative AI Specialist with hands-on experience building production-ready AI solutions, from research-grade analysis to advanced multi-agent systems for industry.</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-          <!-- Left column with summary and contact -->
-          <div class="col-lg-4">
-            <div class="resume-side" data-aos="fade-right" data-aos-delay="100">
-              <div class="profile-img mb-4">
-                <img src="assets/img/profile/profile.PNG" alt="Alban Danet" class="img-fluid rounded">
-              </div>
-
-              <h3>Professional Summary</h3>
-              <p>Freelance Generative AI Specialist with strong expertise in LLMs, prompt engineering, multi-agent systems, and end-to-end pipeline design. Passionate about solving real-world challenges through robust AI solutions tailored to client needs.</p>
-
-              <h3 class="mt-4">Contact Information</h3>
-              <ul class="contact-info list-unstyled">
-                <li><i class="bi bi-geo-alt"></i> Paris, France</li>
-                <li><i class="bi bi-envelope"></i> alban.danet@efrei.net</li>
-                <li><i class="bi bi-phone"></i> +33 6 45 59 61 69</li>
-                <li><i class="bi bi-linkedin"></i> <a href="https://www.linkedin.com/in/alban-danet" target="_blank">linkedin.com/in/alban-danet</a></li>
-                <li><i class="bi bi-github"></i> <a href="https://github.com/albiche" target="_blank">github.com/albiche</a></li>
-              </ul>
-
-              <div class="skills-animation mt-4">
-                <h3>Technical Skills</h3>
-                <div class="skill-item">
-                  <div class="d-flex justify-content-between">
-                    <span>Python, JS, SQL</span>
-                    <span>Advanced</span>
-                  </div>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-                <div class="skill-item">
-                  <div class="d-flex justify-content-between">
-                    <span>Generative AI, LLMs</span>
-                    <span>Advanced</span>
-                  </div>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-                <div class="skill-item">
-                  <div class="d-flex justify-content-between">
-                    <span>Prompt Engineering</span>
-                    <span>Expert</span>
-                  </div>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-                <div class="skill-item">
-                  <div class="d-flex justify-content-between">
-                    <span>Data & ML Pipelines</span>
-                    <span>Advanced</span>
-                  </div>
-                  <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="mt-4">
-                <h3>Languages</h3>
-                <ul class="list-unstyled">
-                  <li>English: C1 (TOEIC 930)</li>
-                  <li>French: Native</li>
-                  <li>Spanish: B1</li>
-                </ul>
-              </div>
-
-              <div class="mt-4">
-                <h3>Certifications</h3>
-                <ul class="list-unstyled">
-                  <li>TensorFlow</li>
-                  <li>Microsoft Azure</li>
-                  <li>AWS</li>
-                </ul>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- Right column with experience and education -->
-          <div class="col-lg-8 ps-4 ps-lg-5">
-            <!-- Experience Section -->
-            <div class="resume-section" data-aos="fade-up">
-              <h3><i class="bi bi-briefcase me-2"></i>Professional Experience</h3>
-
-              <div class="resume-item">
-                <h4>AI Engineer Full Stack (M2 Internship)</h4>
-                <h5>Mar 2025 – Sep 2025</h5>
-                <p class="company"><i class="bi bi-building"></i> Pernod Ricard</p>
-                <ul>
-                  <li>Designed and deployed autonomous multi-agent systems to audit brand safety (DGP) across diverse media, with targeted scraping and intelligent detection.</li>
-                  <li>Prototyped harmonization solutions for product naming using fuzzy matching, lightweight LLMs, advanced RAG, and human-in-the-loop validation.</li>
-                  <li>Built a production-grade multimodal pipeline for analyzing ad content (image and audio extraction, generative AI processing, context enrichment via specialized agents).</li>
-                  <li>Orchestrated robust workflows with dynamic batching, smart prompt management, retry strategies, and modular architecture for deployment.</li>
-                </ul>
-              </div>
-
-              <div class="resume-item">
-                <h4>Generative AI Engineer</h4>
-                <h5>Mar 2024 – Jul 2024</h5>
-                <p class="company"><i class="bi bi-building"></i> Falc’on (Startup)</p>
-                <ul>
-                  <li>Trained an AI model to convert complex texts into Easy-to-Read versions (FALC), with fine-tuning and RLHF optimization for clarity and compliance.</li>
-                  <li>Delivered improved readability while adhering to accessibility standards.</li>
-                </ul>
-              </div>
-
-              <div class="resume-item">
-                <h4>Data Scientist (M1 Internship)</h4>
-                <h5>Nov 2023 – Mar 2024</h5>
-                <p class="company"><i class="bi bi-building"></i> IRMES Lab, INSEP & FFRS</p>
-                <ul>
-                  <li>Applied Elo-like scoring (ROL) to evaluate skateboarders' performance levels.</li>
-                  <li>Performed novel analysis of age-performance curves using advanced models (Moore, IMAP) to determine peak performance ages.</li>
-                  <li>Delivered actionable insights to coaches ahead of the Paris Olympics.</li>
-                  <li>Leveraged generative AI tools for boosted productivity throughout the project.</li>
-                </ul>
-              </div>
-
-              <div class="resume-item">
-                <h4>Weather Alert System (Freelance / NGO)</h4>
-                <h5>2023</h5>
-                <p class="company"><i class="bi bi-building"></i> Association in Madagascar</p>
-                <ul>
-                  <li>Developed an autonomous weather alert system for local fishermen, integrating weather APIs, risk scoring, and SMS notifications via Twilio and Orange APIs.</li>
-                  <li>Designed rule-based flag warning logic to improve safety and reduce maritime accidents.</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- Education Section -->
-            <div class="resume-section" data-aos="fade-up" data-aos-delay="100">
-              <h3><i class="bi bi-mortarboard me-2"></i>Education</h3>
-
-              <div class="resume-item">
-                <h4>Engineering Degree in Data Engineering</h4>
-                <h5>2019 – 2025</h5>
-                <p class="company"><i class="bi bi-building"></i> EFREI Paris</p>
-                <p>Generalist engineering school with specialization in Data Science and AI. Courses included machine learning, generative AI, NLP, data engineering, cloud architecture, and software development.</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section><!-- /Resume Section -->
-
 
     <!-- Portfolio Section -->
     <section id="portfolio" class="portfolio section">
@@ -803,7 +248,7 @@
 
 
     <!-- Services Section -->
-    <section id="services" class="services section">
+    <section id="services" class="services section light-background">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
@@ -914,16 +359,16 @@
       </div>
     </section><!-- /Services Section -->
 
-
-
-    <!-- Testimonials Section -->
+    <!--
+  
+     Testimonials Section 
     <section id="testimonials" class="testimonials section light-background">
 
-      <!-- Section Title -->
+       Section Title 
       <div class="container section-title" data-aos="fade-up">
         <h2>Testimonials</h2>
         <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+      </div>End Section Title 
 
       <div class="container">
 
@@ -1041,8 +486,8 @@
 
       </div>
 
-    </section><!-- /Testimonials Section -->
-
+    </section> /Testimonials Section
+    -->
     <!-- Contact Section -->
     <section id="contact" class="contact section">
 
@@ -1058,7 +503,7 @@
           <div class="col-lg-5">
             <div class="info-box">
               <h3>Contact Info</h3>
-              <p>I’m available for freelance projects, consulting, or just a chat about AI solutions. Reach out anytime—I’d love to hear from you.</p>
+              <p>I’m available for freelance projects, consulting, or just a chat about AI solutions.</p>
 
               <div class="info-item">
                 <div class="icon-box">
@@ -1072,27 +517,32 @@
 
               <div class="info-item">
                 <div class="icon-box">
-                  <i class="bi bi-telephone"></i>
+                  <i class="bi bi-envelope"></i>
                 </div>
                 <div class="content">
-                  <h4>Phone</h4>
-                  <p>+33 6 45 59 61 69</p>
+                  <h4>Email</h4>
+                  <p><a href="mailto:alban.danet@efrei.net">alban.danet@efrei.net</a></p>
                 </div>
               </div>
 
               <div class="info-item">
                 <div class="icon-box">
-                  <i class="bi bi-envelope"></i>
+                  <i class="bi bi-linkedin"></i>
                 </div>
                 <div class="content">
-                  <h4>Email</h4>
-                  <p>alban.danet@efrei.net</p>
+                  <h4>LinkedIn</h4>
+                  <p><a href="https://www.linkedin.com/in/alban-danet" target="_blank">Alban Danet</a></p>
                 </div>
               </div>
 
-              <div class="social-links mt-3">
-                <a href="https://github.com/albiche" target="_blank"><i class="bi bi-github"></i></a>
-                <a href="https://www.linkedin.com/in/alban-danet" target="_blank"><i class="bi bi-linkedin"></i></a>
+              <div class="info-item">
+                <div class="icon-box">
+                  <i class="bi bi-github"></i>
+                </div>
+                <div class="content">
+                  <h4>GitHub</h4>
+                  <p><a href="https://github.com/albiche" target="_blank">Albiche</a></p>
+                </div>
               </div>
             </div>
           </div>
@@ -1149,7 +599,7 @@
 
     <div class="container">
       <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">iPortfolio</strong> <span>All Rights Reserved</span></p>
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Alban Danet</strong> <span>All Rights Reserved</span></p>
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
