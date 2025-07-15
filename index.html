@@ -36,6 +36,47 @@
   ======================================================== -->
 </head>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contact-form");
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const action = form.getAttribute("action");
+
+      // Affiche le loader
+      form.querySelector('.loading').style.display = 'block';
+      form.querySelector('.error-message').style.display = 'none';
+      form.querySelector('.sent-message').style.display = 'none';
+
+      try {
+        const response = await fetch(action, {
+          method: form.method,
+          body: data,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        form.querySelector('.loading').style.display = 'none';
+
+        if (response.ok) {
+          window.location.href = "thanks.html";
+        } else {
+          form.querySelector('.error-message').style.display = 'block';
+          form.querySelector('.error-message').innerText = "An error occurred. Please try again later.";
+        }
+      } catch (error) {
+        form.querySelector('.loading').style.display = 'none';
+        form.querySelector('.error-message').style.display = 'block';
+        form.querySelector('.error-message').innerText = "Network error. Please check your connection and try again.";
+      }
+    });
+  });
+</script>
+
+
+
 <body class="index-page">
 
   <header id="header" class="header dark-background d-flex flex-column justify-content-center">
@@ -194,11 +235,11 @@
 
               <div class="stats-grid">
                 <div class="stat-item">
-                  <div class="stat-number">10+</div>
+                  <div class="stat-number">7</div>
                   <div class="stat-label">AI Projects Delivered</div>
                 </div>
                 <div class="stat-item">
-                  <div class="stat-number">4+</div>
+                  <div class="stat-number">3+</div>
                   <div class="stat-label">Years Experience</div>
                 </div>
                 <div class="stat-item">
@@ -742,7 +783,7 @@
                         <span class="category">Research & NLP</span>
                         <h4>Age-Performance Dynamics in Skateboarding</h4>
                         <div class="portfolio-links">
-                          <a href="portfolio-details.html" title="More Details"><i class="bi bi-arrow-right"></i></a>
+                          <a href="project-age-perf.html" title="More Details"><i class="bi bi-arrow-right"></i></a>
                         </div>
                       </div>
                     </div>
@@ -767,7 +808,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Services</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>I help businesses unlock the potential of Generative AI through tailored solutions, robust pipelines, and expert guidance.</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -777,18 +818,18 @@
             <div class="col-lg-8 col-md-12">
               <div class="service-intro">
                 <h2 class="service-heading">
-                  <div>Innovative business</div>
-                  <div><span>performance solutions</span></div>
+                  <div>Transforming ideas</div>
+                  <div><span>into operational AI solutions</span></div>
                 </h2>
               </div>
             </div>
             <div class="col-lg-4 col-md-12">
               <div class="service-summary">
                 <p>
-                  We integrate forward-thinking strategies, creative approaches, and state-of-the-art technologies to deliver exceptional customer experiences that drive growth and engage target markets.
+                  I combine deep technical expertise with practical business understanding to design, build, and deploy Generative AI systems that solve problems previously considered impossible.
                 </p>
-                <a href="services.html" class="service-btn">
-                  View All Services
+                <a href="#contact" class="service-btn">
+                  Get In Touch
                   <i class="bi bi-arrow-right"></i>
                 </a>
               </div>
@@ -800,116 +841,80 @@
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="service-card position-relative z-1">
               <div class="service-icon">
-                <i class="bi bi-palette"></i>
+                <i class="bi bi-stars"></i>
               </div>
-              <a href="service-details.html" class="card-action d-flex align-items-center justify-content-center rounded-circle">
-                <i class="bi bi-arrow-up-right"></i>
-              </a>
-              <h3>
-                <a href="service-details.html">
-                  Creative <span>branding</span>
-                </a>
-              </h3>
+              <h3>Generative AI Problem Solving</h3>
               <p>
-                Nulla facilisi. Maecenas eget magna neque. Suspendisse potenti. Curabitur eleifend nisi non magna vulputate, vel condimentum libero tempus. Proin consectetur feugiat diam.
+                I design advanced Generative AI systems to tackle challenges previously seen as impossible, such as image recognition, text classification, data extraction, and content generation—all tailored to your specific use case.
               </p>
             </div>
           </div>
+          
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="service-card position-relative z-1">
               <div class="service-icon">
-                <i class="bi bi-gem"></i>
+                <i class="bi bi-diagram-3"></i>
               </div>
-              <a href="service-details.html" class="card-action d-flex align-items-center justify-content-center rounded-circle">
-                <i class="bi bi-arrow-up-right"></i>
-              </a>
-              <h3>
-                <a href="service-details.html">
-                  Design <span>systems</span>
-                </a>
-              </h3>
+              <h3>Clean & Scalable Pipelines</h3>
               <p>
-                Praesent euismod varius tellus, vel bibendum nunc interdum at. Donec vehicula diam vel metus venenatis convallis. Aliquam erat volutpat. Etiam viverra magna sit amet.
+                I build production-ready, modular AI pipelines that integrate seamlessly into your existing architecture, ensuring maintainability, extensibility, and high-quality engineering standards.
               </p>
             </div>
           </div>
+          
           <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="service-card position-relative z-1">
               <div class="service-icon">
-                <i class="bi bi-megaphone"></i>
+                <i class="bi bi-chat-square-text"></i>
               </div>
-              <a href="service-details.html" class="card-action d-flex align-items-center justify-content-center rounded-circle">
-                <i class="bi bi-arrow-up-right"></i>
-              </a>
-              <h3>
-                <a href="service-details.html">
-                  Marketing <span>strategies</span>
-                </a>
-              </h3>
+              <h3>AI Consulting & Strategy</h3>
               <p>
-                Vivamus tempor velit id magna dictum, sed fermentum nisi faucibus. Integer nec pretium sapien. Fusce tincidunt ligula et purus consequat, ac pellentesque nulla eleifend.
+                I work with teams to identify where Generative AI can deliver real value, designing tailored strategies and helping plan for implementation in line with your business goals.
               </p>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
             <div class="service-card position-relative z-1">
               <div class="service-icon">
-                <i class="bi bi-code-slash"></i>
+                <i class="bi bi-mortarboard"></i>
               </div>
-              <a href="service-details.html" class="card-action d-flex align-items-center justify-content-center rounded-circle">
-                <i class="bi bi-arrow-up-right"></i>
-              </a>
-              <h3>
-                <a href="service-details.html">
-                  Digital <span>platforms</span>
-                </a>
-              </h3>
+              <h3>Training & Enablement</h3>
               <p>
-                Cras fermentum odio eu feugiat malesuada. Vestibulum ante ipsum primis in faucibus orci luctus et accumsan cursus. Morbi placerat nulla vel nunc viverra accumsan.
+                I provide accessible, pragmatic training for teams on Generative AI concepts, best practices, and implementation—empowering your staff to work confidently with cutting-edge tools and frameworks.
               </p>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
             <div class="service-card position-relative z-1">
               <div class="service-icon">
-                <i class="bi bi-graph-up"></i>
+                <i class="bi bi-graph-up-arrow"></i>
               </div>
-              <a href="service-details.html" class="card-action d-flex align-items-center justify-content-center rounded-circle">
-                <i class="bi bi-arrow-up-right"></i>
-              </a>
-              <h3>
-                <a href="service-details.html">
-                  Growth <span>acceleration</span>
-                </a>
-              </h3>
+              <h3>Proof-of-Concept to Production</h3>
               <p>
-                Aenean vel augue vel nisi bibendum posuere. Phasellus in lacus quis urna sodales dignissim. Duis aliquam libero eget risus facilisis. Quisque eget libero vel nisl fringilla.
+                From quick-turnaround prototypes to fully deployed solutions, I support the entire AI lifecycle, ensuring that your AI projects move beyond experimentation to deliver real operational impact.
               </p>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
             <div class="service-card position-relative z-1">
               <div class="service-icon">
-                <i class="bi bi-camera-video"></i>
+                <i class="bi bi-shield-lock"></i>
               </div>
-              <a href="service-details.html" class="card-action d-flex align-items-center justify-content-center rounded-circle">
-                <i class="bi bi-arrow-up-right"></i>
-              </a>
-              <h3>
-                <a href="service-details.html">
-                  Media <span>solutions</span>
-                </a>
-              </h3>
+              <h3>Secure & Ethical AI</h3>
               <p>
-                Etiam efficitur lacus in diam finibus, nec ultrices est sagittis. Maecenas elementum magna sed risus faucibus, nec commodo purus facilisis. Vestibulum accumsan magna.
+                I emphasize robust security practices, data privacy, and ethical considerations throughout the development process to ensure your AI solutions are responsible, trustworthy, and compliant.
               </p>
             </div>
           </div>
         </div>
 
       </div>
-
     </section><!-- /Services Section -->
+
+
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section light-background">
@@ -1044,7 +1049,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <p>Let's discuss how Generative AI can solve your challenges, streamline your workflows, or empower your team. Get in touch!</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -1053,16 +1058,15 @@
           <div class="col-lg-5">
             <div class="info-box">
               <h3>Contact Info</h3>
-              <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis.</p>
+              <p>I’m available for freelance projects, consulting, or just a chat about AI solutions. Reach out anytime—I’d love to hear from you.</p>
 
               <div class="info-item">
                 <div class="icon-box">
                   <i class="bi bi-geo-alt"></i>
                 </div>
                 <div class="content">
-                  <h4>Our Location</h4>
-                  <p>A108 Adam Street</p>
-                  <p>New York, NY 535022</p>
+                  <h4>Location</h4>
+                  <p>Paris, France</p>
                 </div>
               </div>
 
@@ -1071,9 +1075,8 @@
                   <i class="bi bi-telephone"></i>
                 </div>
                 <div class="content">
-                  <h4>Phone Number</h4>
-                  <p>+1 5589 55488 55</p>
-                  <p>+1 6678 254445 41</p>
+                  <h4>Phone</h4>
+                  <p>+33 6 45 59 61 69</p>
                 </div>
               </div>
 
@@ -1082,10 +1085,14 @@
                   <i class="bi bi-envelope"></i>
                 </div>
                 <div class="content">
-                  <h4>Email Address</h4>
-                  <p>info@example.com</p>
-                  <p>contact@example.com</p>
+                  <h4>Email</h4>
+                  <p>alban.danet@efrei.net</p>
                 </div>
+              </div>
+
+              <div class="social-links mt-3">
+                <a href="https://github.com/albiche" target="_blank"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/alban-danet" target="_blank"><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
           </div>
@@ -1093,46 +1100,48 @@
           <div class="col-lg-7">
             <div class="contact-form">
               <h3>Get In Touch</h3>
-              <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis.</p>
+              <p>Tell me about your project or question, and I'll get back to you quickly. Let’s build something innovative together.</p>
 
-              <form action="forms/contact.php" method="post" class="php-email-form">
+              <form id="contact-form" action="https://formspree.io/f/myzpyykv" method="POST" class="php-email-form">
                 <div class="row gy-4">
 
                   <div class="col-md-6">
-                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                   </div>
 
-                  <div class="col-md-6 ">
-                    <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                  </div>
-
-                  <div class="col-12">
-                    <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                  <div class="col-md-6">
+                    <input type="email" name="_replyto" class="form-control" placeholder="Your Email" required>
                   </div>
 
                   <div class="col-12">
-                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                    <input type="text" name="_subject" class="form-control" placeholder="Subject" required>
+                  </div>
+
+                  <div class="col-12">
+                    <textarea name="message" class="form-control" rows="6" placeholder="Your Message" required></textarea>
                   </div>
 
                   <div class="col-12 text-center">
-                    <div class="loading">Loading</div>
+                    <div class="loading">Sending your message...</div>
                     <div class="error-message"></div>
                     <div class="sent-message">Your message has been sent. Thank you!</div>
 
                     <button type="submit" class="btn">Send Message</button>
                   </div>
 
+
                 </div>
               </form>
-
             </div>
           </div>
+
 
         </div>
 
       </div>
-
     </section><!-- /Contact Section -->
+
+
 
   </main>
 
@@ -1160,19 +1169,22 @@
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/typed.js/typed.umd.js"></script>
+<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+<!-- Main JS File -->
+<script src="assets/js/main.js"></script>
+<!-- Contact Form Handler -->
+<script src="assets/js/contact-form-handler.js"></script>
+
 
 </body>
 
